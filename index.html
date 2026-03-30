@@ -250,19 +250,22 @@
 
     /* Stats bar */
     .stats-bar {
+      position: relative;
+      z-index: 3;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.15);
       border-radius: 16px;
       overflow: hidden;
       margin-top: 60px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
     .stat-item {
       text-align: center;
       padding: 28px 20px;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(15, 26, 46, 0.8);
+      backdrop-filter: blur(8px);
     }
     .stat-number {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -272,7 +275,7 @@
     }
     .stat-label {
       font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.55);
+      color: rgba(255, 255, 255, 0.75);
       margin-top: 4px;
     }
 
@@ -296,8 +299,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      max-width: 70vh;
-      max-height: 70vh;
+      max-width: 55vh;
+      max-height: 55vh;
       width: auto;
       height: auto;
       border-radius: 12px;
@@ -335,18 +338,19 @@
       height: 100%;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       z-index: 3;
       pointer-events: none;
+      padding: 0 6vw;
     }
     .scroll-text-inner {
-      text-align: center;
-      max-width: 640px;
-      padding: 32px;
-      background: rgba(15,26,46,0.75);
-      backdrop-filter: blur(8px);
+      text-align: left;
+      max-width: 480px;
+      padding: 40px 44px;
+      background: rgba(15,26,46,0.85);
+      backdrop-filter: blur(12px);
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.5s ease, transform 0.5s ease;
@@ -366,11 +370,15 @@
       font-size: 1.05rem;
       line-height: 1.7;
     }
+    .scroll-text-block:nth-child(even) {
+      justify-content: flex-end;
+    }
 
     @media (max-width: 768px) {
       .scroll-transform { height: 300vh; }
-      .scroll-transform-canvas { max-width: 90vw; max-height: 50vh; }
-      .scroll-text-inner { margin: 0 16px; }
+      .scroll-transform-canvas { max-width: 80vw; max-height: 45vh; }
+      .scroll-text-block { justify-content: center !important; padding: 0 16px; }
+      .scroll-text-inner { max-width: 100%; }
       .scroll-transform-overlay .section-title { font-size: 1.8rem; }
     }
 
