@@ -382,6 +382,265 @@
       .scroll-transform-overlay .section-title { font-size: 1.8rem; }
     }
 
+    /* ===== TRUST TICKER ===== */
+    .trust-ticker {
+      background: #ffffff;
+      padding: 32px 0;
+      border-bottom: 1px solid #e8ebf0;
+      overflow: hidden;
+      position: relative;
+    }
+    .trust-ticker::before,
+    .trust-ticker::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .trust-ticker::before {
+      left: 0;
+      background: linear-gradient(to right, #ffffff 0%, transparent 100%);
+    }
+    .trust-ticker::after {
+      right: 0;
+      background: linear-gradient(to left, #ffffff 0%, transparent 100%);
+    }
+    .trust-ticker-label {
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    .ticker-track {
+      display: flex;
+      animation: ticker-scroll 30s linear infinite;
+      width: max-content;
+    }
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+    .ticker-item {
+      flex-shrink: 0;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #334155;
+      opacity: 0.5;
+      white-space: nowrap;
+      transition: opacity 0.3s;
+    }
+    .ticker-item:hover { opacity: 0.8; }
+    .ticker-item svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      stroke: #c0713a;
+      fill: none;
+      stroke-width: 1.5;
+    }
+    @keyframes ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ===== COUNTER STATS ===== */
+    .counter-stats {
+      padding: 64px 0;
+      background: #f8f9fb;
+      border-bottom: 1px solid #e8ebf0;
+    }
+    .counter-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .counter-stat {
+      position: relative;
+    }
+    .counter-stat::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background: #e2e8f0;
+    }
+    .counter-stat:last-child::after { display: none; }
+    .counter-number {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: #0f1a2e;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .counter-number .counter-suffix {
+      color: #c0713a;
+    }
+    .counter-label {
+      font-size: 0.9rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+    @media (max-width: 768px) {
+      .counter-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 20px;
+      }
+      .counter-stat::after { display: none; }
+      .counter-number { font-size: 2.25rem; }
+    }
+
+    /* ===== TEASER ===== */
+    .teaser {
+      padding: 100px 0 80px;
+      background: #0f1a2e;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .teaser::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(192,113,58,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .teaser .section-label {
+      color: rgba(192,113,58,0.9);
+    }
+    .teaser .section-title {
+      color: #ffffff;
+      font-size: 2.75rem;
+      max-width: 800px;
+      margin: 0 auto 24px;
+    }
+    .teaser-body {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.15rem;
+      max-width: 640px;
+      margin: 0 auto 48px;
+      line-height: 1.8;
+    }
+    .comparison-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 900px;
+      margin: 0 auto 48px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .comparison-col {
+      padding: 40px 36px;
+    }
+    .comparison-col.col-them {
+      background: rgba(255,255,255,0.03);
+    }
+    .comparison-col.col-us {
+      background: rgba(192,113,58,0.08);
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
+    .comparison-col-header {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .col-them .comparison-col-header {
+      color: rgba(255,255,255,0.4);
+    }
+    .col-us .comparison-col-header {
+      color: #c0713a;
+    }
+    .comparison-item {
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    .comparison-item:last-child { margin-bottom: 0; }
+    .comparison-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .col-them .comparison-item h4 {
+      color: rgba(255,255,255,0.5);
+    }
+    .col-us .comparison-item h4 {
+      color: #ffffff;
+    }
+    .comparison-item p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .col-them .comparison-item p {
+      color: rgba(255,255,255,0.3);
+    }
+    .col-us .comparison-item p {
+      color: rgba(255,255,255,0.65);
+    }
+    .comparison-item .comp-icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    .col-them .comp-icon { color: rgba(255,255,255,0.25); }
+    .col-us .comp-icon { color: #c0713a; }
+    .teaser-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #c0713a;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+    }
+    .teaser-cue svg {
+      width: 20px;
+      height: 20px;
+      stroke: #c0713a;
+      fill: none;
+      stroke-width: 2;
+      animation: bounce-down 1.5s ease-in-out infinite;
+    }
+    @keyframes bounce-down {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    @media (max-width: 768px) {
+      .teaser .section-title { font-size: 2rem; }
+      .teaser-body { font-size: 1rem; }
+      .comparison-panel { grid-template-columns: 1fr; }
+      .comparison-col.col-us { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .comparison-col { padding: 28px 24px; }
+    }
+
     /* ===== SERVICES ===== */
     .services { padding: 100px 0; background: #f8f9fb; }
     .services-header { text-align: center; margin-bottom: 60px; }
@@ -774,6 +1033,126 @@
     </div>
   </section>
 
+  <!-- ===== TRUST TICKER ===== -->
+  <section class="trust-ticker">
+    <div class="trust-ticker-label">Trusted Across East Tennessee</div>
+    <div class="ticker-track">
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Corporate Offices</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Manufacturing Facilities</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Healthcare Campuses</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Universities & Schools</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Government Buildings</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Distribution Centers</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>50+ Employee Teams</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>24/7 Operations</div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Corporate Offices</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Manufacturing Facilities</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Healthcare Campuses</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Universities & Schools</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Government Buildings</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Distribution Centers</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>50+ Employee Teams</div>
+      <div class="ticker-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>24/7 Operations</div>
+    </div>
+  </section>
+
+  <!-- ===== COUNTER STATS ===== -->
+  <section class="counter-stats">
+    <div class="container">
+      <div class="counter-stats-grid">
+        <div class="counter-stat">
+          <div class="counter-number"><span class="counter-value" data-target="60">0</span><span class="counter-suffix">+</span></div>
+          <div class="counter-label">Years in Business</div>
+        </div>
+        <div class="counter-stat">
+          <div class="counter-number"><span class="counter-value" data-target="100">0</span><span class="counter-suffix">+</span></div>
+          <div class="counter-label">Locations Served</div>
+        </div>
+        <div class="counter-stat">
+          <div class="counter-number"><span class="counter-value" data-target="24">0</span><span class="counter-suffix">/7</span></div>
+          <div class="counter-label">Service & Support</div>
+        </div>
+        <div class="counter-stat">
+          <div class="counter-number"><span class="counter-value" data-target="100">0</span><span class="counter-suffix">%</span></div>
+          <div class="counter-label">Locally Owned</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEASER / COMPARISON ===== -->
+  <section class="teaser" id="teaser">
+    <div class="container">
+      <div class="section-label fade-up">The Roddy Difference</div>
+      <h2 class="section-title fade-up">Not all breakroom vendors are built the same</h2>
+      <p class="teaser-body fade-up">Most vending companies send you a contract and a machine. We send you a partner with a commissary kitchen, six decades of local relationships, and a phone number that someone actually answers.</p>
+
+      <div class="comparison-panel fade-up">
+        <div class="comparison-col col-them">
+          <div class="comparison-col-header">National Chains</div>
+          <div class="comparison-item">
+            <h4><svg class="comp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Generic Equipment</h4>
+            <p>Cookie-cutter machines deployed from a regional warehouse. Same setup at every site, no customization.</p>
+          </div>
+          <div class="comparison-item">
+            <h4><svg class="comp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Rotating Reps</h4>
+            <p>Your account manager changes every quarter. Nobody knows your building or your team's preferences.</p>
+          </div>
+          <div class="comparison-item">
+            <h4><svg class="comp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Shipped-In Food</h4>
+            <p>Pre-packaged products from a distribution center three states away. Fresh is a relative term.</p>
+          </div>
+        </div>
+        <div class="comparison-col col-us">
+          <div class="comparison-col-header">Roddy Vending</div>
+          <div class="comparison-item">
+            <h4><svg class="comp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Tailored Solutions</h4>
+            <p>Every setup is designed for your space. Vending, micro-markets, coffee, or a full cafeteria, configured to fit.</p>
+          </div>
+          <div class="comparison-item">
+            <h4><svg class="comp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Same Team, Always</h4>
+            <p>The person who sets up your account is the same person you call when something needs to change. Locally owned since 1965.</p>
+          </div>
+          <div class="comparison-item">
+            <h4><svg class="comp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Made in Our Kitchen</h4>
+            <p>Fresh food prepared daily in Roddy's own Knoxville commissary. Real meals made by real people, delivered the same day.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="teaser-cue fade-up">
+        See the transformation
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCROLL TRANSFORM ===== -->
+  <section class="scroll-transform" id="transform">
+    <div class="scroll-transform-sticky">
+      <img class="scroll-transform-canvas" id="scrollCanvas" src="frames/frame_0001.jpg" alt="Vending to micro-market transformation">
+      <div class="scroll-text-block">
+        <div class="scroll-text-inner" id="scrollText1">
+          <h3>More Than Vending</h3>
+          <p>The old vending machine in the hallway was fine for 1995. Your team deserves better. Roddy transforms basic breakrooms into full-service micro-markets your employees will actually use.</p>
+        </div>
+      </div>
+      <div class="scroll-text-block">
+        <div class="scroll-text-inner" id="scrollText2">
+          <h3>Built From Our Kitchen to Your Breakroom</h3>
+          <p>Fresh salads, wraps, and meals prepared daily in our own Knoxville commissary. Real food from real people, stocked and refreshed on a schedule built around your team.</p>
+        </div>
+      </div>
+      <div class="scroll-text-block">
+        <div class="scroll-text-inner" id="scrollText3">
+          <h3>One Partner. Every Solution.</h3>
+          <p>Vending, micro-markets, coffee, cafeteria management, and catering. One local company, one relationship, zero runaround.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== SERVICES ===== -->
   <section class="services" id="services">
     <div class="container">
@@ -832,31 +1211,6 @@
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SCROLL TRANSFORM ===== -->
-  <section class="scroll-transform" id="transform">
-    <div class="scroll-transform-sticky">
-      <img class="scroll-transform-canvas" id="scrollCanvas" src="frames/frame_0001.jpg" alt="Vending to micro-market transformation">
-      <div class="scroll-text-block">
-        <div class="scroll-text-inner" id="scrollText1">
-          <h3>More Than Vending</h3>
-          <p>The old vending machine in the hallway was fine for 1995. Your team deserves better. Roddy transforms basic breakrooms into full-service micro-markets your employees will actually use.</p>
-        </div>
-      </div>
-      <div class="scroll-text-block">
-        <div class="scroll-text-inner" id="scrollText2">
-          <h3>Built From Our Kitchen to Your Breakroom</h3>
-          <p>Fresh salads, wraps, and meals prepared daily in our own Knoxville commissary. Real food from real people, stocked and refreshed on a schedule built around your team.</p>
-        </div>
-      </div>
-      <div class="scroll-text-block">
-        <div class="scroll-text-inner" id="scrollText3">
-          <h3>One Partner. Every Solution.</h3>
-          <p>Vending, micro-markets, coffee, cafeteria management, and catering. One local company, one relationship, zero runaround.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -1130,6 +1484,52 @@
     document.querySelectorAll('.fade-up').forEach(function(el) {
       fadeObserver.observe(el);
     });
+
+    // ===== COUNTER STATS ANIMATION =====
+    (function() {
+      var counters = document.querySelectorAll('.counter-value');
+      var hasAnimated = false;
+
+      function animateCounters() {
+        if (hasAnimated) return;
+        hasAnimated = true;
+
+        counters.forEach(function(counter) {
+          var target = parseInt(counter.getAttribute('data-target'));
+          var duration = 2000;
+          var startTime = null;
+
+          function easeOutQuart(t) {
+            return 1 - Math.pow(1 - t, 4);
+          }
+
+          function update(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var elapsed = timestamp - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            var easedProgress = easeOutQuart(progress);
+            var current = Math.floor(easedProgress * target);
+            counter.textContent = current.toLocaleString();
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              counter.textContent = target.toLocaleString();
+            }
+          }
+
+          requestAnimationFrame(update);
+        });
+      }
+
+      var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) animateCounters();
+        });
+      }, { threshold: 0.3 });
+
+      var counterSection = document.querySelector('.counter-stats');
+      if (counterSection) counterObserver.observe(counterSection);
+    })();
 
     // ===== SCROLL-TRIGGERED FRAME ANIMATION =====
     (function() {
